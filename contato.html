@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contato - Fábrica de Doces</title>
+	<link rel="stylesheet" type="text/css" href="_css\styles.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
+	<script src="_javascript\mainFunctions.js"></script>
+</head>
+<body>
+	<div class="body-content">
+		<section class="hero">
+			<div class="hero-head">
+				<header>
+				  <nav class="navbar">
+					  <div class="container">
+						<div class="navbar-brand level is-marginless">
+							<div class="level-left is-marginless">
+								<a href="index.html" class="navbar-item">
+									<img class="logo" src="_img/DocesLogo.png" alt="Logo">
+								</a>
+							</div>
+							<div class="level-item">
+								<span id="btnBurger" class="navbar-burger" data-target="menuHero">
+									<span></span>
+									<span></span>
+									<span></span>
+								</span>
+							</div>
+						</div>
+						<div id="menuHero" class="navbar-menu">
+							<div class="navbar-end">
+							<a href="index.html" class="navbar-item">
+								Home
+							</a>
+							<a href="sobre.html" class="navbar-item">
+								Sobre
+							</a>
+							<a href="contato.html" class="navbar-item is-active">
+								Contato
+							</a>
+							</div>
+						</div>
+					  </div>
+				  </nav>
+				</header>
+			</div>
+		</section>
+		
+		<section class="level background-hero-color p-1"></section>
+
+		<section class="container main-content level-item">
+			<div class="column is-6 box">
+				<div class="level level-item mb-6">
+					<h4 class="title is-3">FALE CONOSCO</h4>
+				</div>
+				<div class="level-item">
+					<div class="column is-11">
+						<form>
+							<div class="field">
+								<label class="label">Nome</label>
+								<div class="control has-icons-left">
+								  <input class="input" type="text" placeholder="Seu nome">
+								  <span class="icon is-small is-left">
+									<i class="fa fa-user"></i>
+								  </span>
+								</div>
+							</div>
+							  
+							<div class="field">
+							<label class="label">E-mail</label>
+							<div class="control has-icons-left has-icons-right">
+								<input class="input" type="email" placeholder="Seu e-mail">
+								<span class="icon is-small is-left">
+								<i class="fa fa-envelope"></i>
+								</span>
+								<span class="icon is-small is-right is-hidden">
+								<i class="fa fa-exclamation-triangle"></i>
+								</span>
+							</div>
+							<p class="help is-danger is-hidden">E-mail inválido.</p>
+							</div>
+							
+							<div class="field">
+							<label class="label">Telefone</label>
+							<div class="control has-icons-left has-icons-right">
+								<input class="input" type="text" placeholder="(DDD) x-xxxx-xxxx">
+								<span class="icon is-small is-left">
+								<i class="fa fa-phone"></i>
+								</span>
+								<span class="icon is-small is-right is-hidden">
+								<i class="fa fa-exclamation-triangle"></i>
+								</span>
+							</div>
+							<p class="help is-danger is-hidden">Número de telefone inválido.</p>
+							</div>
+			
+							<div class="field">
+								<label class="label">Cidade</label>
+								<div class="control has-icons-left">
+								  <input class="input" type="text" placeholder="Sua cidade">
+								  <span class="icon is-small is-left">
+									<i class="fa fa-building"></i>
+									</span>
+								</div>
+							</div>
+			
+							<div class="field">
+							<label class="label">Assunto</label>
+							<div class="control">
+								<div class="select">
+								<select>
+									<option>Motivo do Contato</option>
+									<option>Atendimento</option>
+									<option>Elogio</option>
+									<option>Insatisfação</option>
+									<option>Outro</option>
+								</select>
+								</div>
+							</div>
+							</div>
+							  
+							<div class="field">
+							<label class="label">Mensagem</label>
+							<div class="control">
+								<textarea class="textarea" placeholder="Sua mensagem."></textarea>
+							</div>
+							</div>
+							
+							<div class="field is-grouped">
+								<div class="control">
+									<button class="button is-success">Enviar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<footer class="footer fade-animation is-invisible">
+		<div class="mb-3">
+			<p class="level-item"><strong class="has-text-white">Este é um projeto meramente ilustrativo e não tem por finalidade representar ou aludir a nenhuma pessoa física ou jurídica.</strong></p>
+			<p class="level-item"><strong class="has-text-white">Quaisquer serviços oferecidos dentro deste domínio são de natureza fictícia.</strong></p>
+		</div>
+		<div class="columns level-item is-mobile">
+			<div class="column is-narrow">
+				<a href="https://github.com/Conatto" class="fa fa-github fa-3x"></a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

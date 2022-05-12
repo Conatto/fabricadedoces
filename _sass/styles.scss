@@ -1,0 +1,229 @@
+@charset "utf-8";
+
+$chocolate: #482509;
+$unbleached-silk: #F5D0C5;
+$maya-blue: #7cc6FE;
+$sea-green-crayola: #5DFDCB;
+$antique-brass: #D69F7E;
+$white: #fff;
+
+$color-core: $chocolate;
+$minor-color: $maya-blue;
+$contrast-color: $antique-brass;
+$back-color: $unbleached-silk;
+$figurant-color: $white;
+
+$mobile: 768px; //até
+$tablet: 769px; //a partir de
+$breakpoint: 1280px;
+$desktop: 1024px; //a partir de
+
+
+//Navbar
+$navbar-background-color: $color-core;
+$navbar-item-color: $figurant-color;
+$navbar-item-hover-color: $figurant-color;
+$navbar-item-hover-background-color: $contrast-color;
+$navbar-item-active-color: $contrast-color;
+$navbar-item-active-background-color: $contrast-color;
+
+//Box
+$box-background-color: hsla(0, 0%, 100%, 0.5);
+
+//Rodapé
+$footer-background-color: $minor-color;
+$footer-padding: 3rem 1.5rem 2rem;
+
+
+@import "../_css/bulma/bulma.sass";
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+body {
+    position: relative;
+    background-color: $back-color;
+    line-height: 0.8rem;
+}
+.body-content { padding-bottom: 18rem; }
+section {
+    height: 100%;
+    line-height: 1.5rem;
+}
+img.logo { max-height: 3rem; }
+.image img { width: 100vw; }
+
+.navbar-burger.is-active {
+    color: $contrast-color;
+}
+a.navbar-item.is-active, .navbar-link.is-active {
+    color: $figurant-color;
+}
+.slider-navigation-previous,
+.slider-navigation-next {
+    display: none !important;
+}
+.carousel-banner-filter {
+    position: fixed;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, .05) 15%);
+    width: 100%;
+    height: 100%;
+}
+.main-title{
+    width: 45vw;
+    color: $figurant-color;
+    font-size: 4.5vw;
+    font-weight: 700;
+    margin: 10vw;
+
+    user-select: none; /* Chrome and Opera */
+   -webkit-user-select: none; /* Safari and Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+.tabs.is-boxed a:hover {
+    background-color: $contrast-color;
+    border-bottom-color: $contrast-color;
+}
+.tabs.is-boxed li.is-active a {
+    background-color: $minor-color;
+    border-color: $minor-color;
+}
+.tabs a {
+    color: $figurant-color;
+    font-weight: bold;
+    font-size: large;
+    padding: 1vw;
+    transition: background-color 0.25s;
+    @include until($mobile) {
+        font-size: small;
+    }
+}
+.tabs a:hover { color: $figurant-color; }
+.tabs li.is-active a { color: $figurant-color; }
+a.navbar-item { transition: background-color 0.25s; }
+.navbar-item, .navbar-link { font-weight: bold; }
+.hero .navbar { background-color: $color-core; }
+.hero-foot { background-color: $color-core; }
+.title.size { font-size: 2rem; }
+.contact-banner {
+    background-image: url("../_img/candy-ge622252a6_1920.jpg");
+    width: 100vw;
+    height: 20rem;
+    opacity: 0;
+    @include until($mobile) {
+        height: 28rem;
+    }
+}
+    .title-contact {
+        @include until($mobile) {
+            font-size: 1.5rem !important;
+        }
+    }
+.contact-banner-effect {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.contact-label {
+    background-color: transparent;
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 10px;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    line-height: 1.2rem;
+    text-align: center;
+}
+
+// Classes Auxiliares
+.background-hero-color {
+    background-color: $minor-color;
+}
+.fade-animation {
+    animation-duration: .5s;
+    animation-delay: .2s;
+    animation-fill-mode: both;
+}
+.fadeInBottom { animation-name: fadeInBottom }
+.fadeInOut { animation-name: fadeIn; }
+.fadeIn { animation-name: fadeIn; padding: 3rem 0;}
+.fadeOut { animation-name: fadeOut }
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to { opacity: 1 }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1 }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.specialty-box {
+    width: 16vw;
+    max-width: 16rem;
+    height: auto;
+}
+.product-box {
+    width: 20vw;
+    max-width: 20rem;
+    height: auto;
+}
+.kit-box {
+    width: 24vw;
+    max-width: 24rem;
+    height: auto;
+}
+.specialty-box, 
+.product-box, 
+.kit-box {
+    min-width: 10rem;
+    min-height: auto;
+    opacity: 0;
+}
+    .specialty-box:hover > .pic-title,
+    .product-box:hover > .pic-title, 
+    .kit-box:hover > .pic-title {
+        height: 40%;
+        transition: height 0.5s;
+    }
+.expo-picture {
+    border-radius: 0.375rem;
+}
+.pic-title {
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.9));
+    width: 100%;
+    min-width: 10rem;
+    height: 25%;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+    .pic-title > .title {
+        font-size: 1.5rem;
+
+        @include until($desktop) {
+            font-size: 1.2rem;
+        }
+        @include from($breakpoint) {
+            font-size: 2rem;
+        }
+    }
