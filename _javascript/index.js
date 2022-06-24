@@ -1,8 +1,6 @@
-window.onresize = function() { location.replace(location.href); }
-
 // INICIALIZAÇÃO DE OBSERVADOR
 const fadeObserver = new IntersectionObserver(entries => {
-    const classNames = [".product-box", ".specialty-box", ".contact-banner", ".kit-box"];
+    const classNames = [".product-item", ".specialty-item", ".contact-item", ".kit-item"];
     let targetClass;
 
     entries.forEach(obj => {
@@ -46,44 +44,4 @@ function fadeBottomEffect(arr, element) {
     setTimeout(() => {
         fadeBottomEffect(arr, arr.pop());
     }, 250);
-}
-function toggleActiveTab(index) {
-    const clickedTab = document.querySelector('#tabItems').children[index];
-    if (clickedTab.classList.contains("is-active")){
-        return;
-    }
-
-    let currentTab = getActiveTab()
-    if (currentTab !== undefined && currentTab !== null) {
-        currentTab.classList.remove("is-active");
-    } 
-    clickedTab.classList.add("is-active");
-    sessionStorage.setItem('currentTabIndex', Number(clickedTab.getAttribute('data-index')));
-}
-function getActiveTab() {
-    const tabs = document.querySelector('#tabItems').children;
-    for (const tab of tabs) {
-        if (tab.classList.contains("is-active")) {
-            return tab
-        }
-    }
-}
-function loadLastTab(dataIndex) {
-    if (dataIndex === null) dataIndex = 0;
-
-    toggleActiveTab(dataIndex);
-}
-function playSlideItemEffect(dataIndex) {
-    if (dataIndex === null) dataIndex = 0; 
-
-    const sliderContent = document.querySelector('#carousel-body').querySelector('.slider-container');
-    const slideItems = sliderContent.children
-    const levels = slideItems[dataIndex].querySelectorAll('.unseen');
-    const currentSlide = slideItems[dataIndex].querySelector('.fadeIn');
-
-    for (const level of levels) {
-        level.classList.remove('unseen');
-    }
-    currentSlide.classList.remove('fadeOut');
-    sliderContent.style.height = getComputedStyle(currentSlide).height;
 }

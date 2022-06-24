@@ -1,0 +1,26 @@
+ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-body {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+}
+.carousel__viewport {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    overflow: hidden; 
+    transform: translateX(0vw);
+}
+.carousel__slide-item {
+    width: 100vw;
+    height: fit-content;
+}
+.carousel__animation-effect {
+    transition: transform .5s ease-in-out;
+}

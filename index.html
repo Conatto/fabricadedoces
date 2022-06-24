@@ -6,12 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bem-Vindo! - Fábrica de Doces</title>
 	<link rel="stylesheet" type="text/css" href="_css\styles.css">
+	<link rel="stylesheet" type="text/css" href="_css/carousel.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	<script src="_javascript\index.js"></script>
 	<script src="_javascript\mainFunctions.js"></script>
+	<script src="_javascript/carousel.js"></script>
 
-	<link rel="stylesheet" href="carousel\css\bulma-carousel.min.css">
-	<script src="carousel\js\bulma-carousel.min.js"></script>
+	<link rel="stylesheet" href="bulma-carousel\css\bulma-carousel.min.css">
+	<script src="bulma-carousel\js\bulma-carousel.min.js"></script>
 </head>
 <body>
 	<div class="body-content">
@@ -85,50 +87,16 @@
 						</div>
 					</div>
 				</div>
-
-				<script>
-				bulmaCarousel.attach('#carousel-hero', {
-					navigation: false,
-					navigationKeys: false,
-					autoplay: true,
-					loop: true,
-					autoplaySpeed: 5000,
-					pauseOnHover: false,
-					breakpoints: [
-						{ 
-							changePoint: 1408, 
-							slidesToShow: 1, 
-							slidesToScroll: 1 
-						},
-						{ 
-							changePoint: 1216, 
-							slidesToShow: 1, 
-							slidesToScroll: 1 
-						}, 
-						{ 
-							changePoint: 1024, 
-							slidesToShow: 1, 
-							slidesToScroll: 1 
-						}, 
-						{ 
-							changePoint: 768, 
-							slidesToShow: 1, 
-							slidesToScroll: 1 
-						} 
-					]
-					
-				});
-				</script>
 			</div>
 			
 			<div class="hero-foot">
 			  <nav class="tabs is-boxed is-fullwidth">
 				<div class="container">
 				  <ul id="tabItems">
-					<li data-index="0"><a onclick="change_slider(0); toggleActiveTab(0);">Produtos</a></li>
-					<li data-index="1"><a onclick="change_slider(1); toggleActiveTab(1);">Especialidades</a></li>
-					<li data-index="2"><a onclick="change_slider(2); toggleActiveTab(2);">Encomendas</a></li>
-					<li data-index="3"><a onclick="change_slider(3); toggleActiveTab(3);">Kit Festa</a></li>
+					<li data-index="0"><a>Produtos</a></li>
+					<li data-index="1"><a>Especialidades</a></li>
+					<li data-index="2"><a>Encomendas</a></li>
+					<li data-index="3"><a>Kit Festa</a></li>
 				  </ul>
 				</div>
 			  </nav>
@@ -136,331 +104,273 @@
 		</section>
 		
 		<section class="level background-hero-color p-1"></section>
-	
-		<div id="carousel-body" class="carousel main-content">
-			<div class="item-1 fade-animation fadeIn fadeOut is-flex">
-				<section id="produtos" class="container">
-					<div class="level level-item unseen">
-						<div class="columns">
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\luiz-carlos-santi-ChOr35YfmM0-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">BOLO</h3>
+		<div id="sliderContent" class="carousel-body">
+			<ol class="carousel__viewport carousel__animation-effect">
+				<li class="carousel__slide-item fade-animation fadeIn fadeOut">
+					<section id="produtos" class="container">
+						<div class="level level-item unseen">
+							<div class="columns">
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\luiz-carlos-santi-ChOr35YfmM0-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">BOLO</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\david-holifield-kPxsqUGneXQ-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">TORTA</h3>
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\david-holifield-kPxsqUGneXQ-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">TORTA</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\pexels-meggy-kadam-aryanto-7428530.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">DOCINHOS</h3>
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\pexels-meggy-kadam-aryanto-7428530.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">DOCINHOS</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\leo-roza-v8lbP5uvfu0-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">SALGADINHOS</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-					<div class="level level-item unseen">
-						<div class="columns">
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\cake-salty-gd2c05b8db_1280.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">TORTA SALGADA</h3>
-									</div>
-								</div>
-							</div>
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\pexels-karolina-grabowska-5706433.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">SOBREMESA</h3>
-									</div>
-								</div>
-							</div>
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\bolo-e-brigadeiros-strawberry-1326307.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">KIT FESTA</h3>
-									</div>
-								</div>
-							</div>
-							<div class="column">
-								<div class="product-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\prod\jordane-mathieu-IoTfslVNreQ-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">MINI BOLO</h3>
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\leo-roza-v8lbP5uvfu0-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">SALGADINHOS</h3>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-			</div>
-			<div class="item-2 fade-animation fadeIn fadeOut is-flex">
-				<section id="especialidades" class="container">
-					<div class="level level-item unseen">
-						<div class="columns">
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\pexels-paloma-clarice-9285199.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">DOCINHO</h3>
+					
+						<div class="level level-item unseen">
+							<div class="columns">
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\cake-salty-gd2c05b8db_1280.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">TORTA SALGADA</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\pexels-towfiqu-barbhuiya-10972833.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">TRUFA</h3>
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\pexels-karolina-grabowska-5706433.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">SOBREMESA</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\alfajor-gc20b9c898_640.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">ALFAJOR</h3>
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\bolo-e-brigadeiros-strawberry-1326307.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">KIT FESTA</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\pexels-nishant-aneja-2955820.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">DONUT</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-					<div class="level level-item unseen">
-						<div class="columns">
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\cupcake-g604aaec6b_1280.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">MUFFIN</h3>
-									</div>
-								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\pexels-ella-olsson-3026810.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">MOUSSE</h3>
-									</div>
-								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture"
-										src="_img\Espec\food-photographer-jennifer-pallian-OfdDiqx8Cz8-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">COOKIE</h3>
-									</div>
-								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\foodie-flavours-d8R6skOYHUU-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">CHURROS</h3>
+								<div class="column">
+									<div class="image-box product-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\prod\jordane-mathieu-IoTfslVNreQ-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">MINI BOLO</h3>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				
-					<div class="level level-item unseen">
-						<div class="columns">
-							<div class="column">
-								<div class="specialty-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\Espec\pexels-ella-olsson-3026804.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">BROWNIE</h3>
+					</section>
+				</li>
+				<li class="carousel__slide-item fade-animation fadeIn fadeOut">
+					<section id="especialidades" class="container">
+						<div class="level level-item unseen">
+							<div class="columns">
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\pexels-paloma-clarice-9285199.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">DOCINHO</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box fade-animation">
-									<img class="expo-picture" src="">
-								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box fade-animation">
-									<img class="expo-picture" src="">
-								</div>
-							</div>
-							<div class="column">
-								<div class="specialty-box fade-animation">
-									<img class="expo-picture" src="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-			<div class="item-3 fade-animation fadeIn fadeOut">
-				<section id="encomendas">
-					<div class="level unseen">
-						<div class="contact-banner fade-animation">
-							<div class="contact-banner-effect"></div>
-							<div class="container">
-								<div class="section">
-									<h2 class="title size title-contact has-text-white has-text-centered">FAÇA JÁ O SEU PEDIDO</h2>
-								</div>
-								<h4 class="title size title-contact has-text-white has-text-centered">Ligue agora mesmo e faça uma encomenda!
-								</h4>
-								<div class="level mt-6">
-									<div class="level-item">
-										<p class="contact-label">
-											<span class="icon is-large">
-												<i class="fa fa-whatsapp"></i>
-											</span>
-											<span class="mr-3">
-												(00) 9-9999-9991
-											</span>
-										</p>
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\pexels-towfiqu-barbhuiya-10972833.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">TRUFA</h3>
+										</div>
 									</div>
-									<div class="level-item">
-										<p class="contact-label">
-											<span class="icon is-large">
-												<i class="fa fa-whatsapp"></i>
-											</span>
-											<span class="mr-3">
-												(00) 9-9999-9992
-											</span>
-										</p>
+								</div>
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\alfajor-gc20b9c898_640.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">ALFAJOR</h3>
+										</div>
 									</div>
-									<div class="level-item">
-										<p class="contact-label">
-											<span class="icon is-large">
-												<i class="fa fa-phone"></i>
-											</span>
-											<span class="mr-3">
-												(00) 9-9999-9993
-											</span>
-										</p>
+								</div>
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\pexels-nishant-aneja-2955820.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">DONUT</h3>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-			</div>
-			<div class="item-4 fade-animation fadeIn fadeOut is-flex">
-				<section id="kitfesta" class="container">
-					<div class="level level-item unseen">
-						<div class="columns">
-							<div class="column">
-								<div class="kit-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\kitfesta\angelina-yan-Kv50bguCyUw-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">TRADICIONAL</h3>
+					
+						<div class="level level-item unseen">
+							<div class="columns">
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\cupcake-g604aaec6b_1280.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">MUFFIN</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="kit-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\kitfesta\nati-melnychuk-iHq2Mjpr5UU-unsplash.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">INFANTIL</h3>
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\pexels-ella-olsson-3026810.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">MOUSSE</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="column">
-								<div class="kit-box is-flex is-align-items-flex-end fade-animation">
-									<img class="expo-picture" src="_img\kitfesta\pexels-jill-wellington-433527.jpg">
-									<div class="pic-title level">
-										<h3 class="title size has-text-white level-item">TEMÁTICO</h3>
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture"
+											src="_img\Espec\food-photographer-jennifer-pallian-OfdDiqx8Cz8-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">COOKIE</h3>
+										</div>
+									</div>
+								</div>
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\foodie-flavours-d8R6skOYHUU-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">CHURROS</h3>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-			</div>
+					
+						<div class="level level-item unseen">
+							<div class="columns">
+								<div class="column">
+									<div class="image-box specialty-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\Espec\pexels-ella-olsson-3026804.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">BROWNIE</h3>
+										</div>
+									</div>
+								</div>
+								<div class="column">
+									<div class="image-box fade-animation">
+										<img class="box-picture" src="">
+									</div>
+								</div>
+								<div class="column">
+									<div class="image-box fade-animation">
+										<img class="box-picture" src="">
+									</div>
+								</div>
+								<div class="column">
+									<div class="image-box fade-animation">
+										<img class="box-picture" src="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</li>
+				<li class="carousel__slide-item fade-animation fadeIn fadeOut">
+					<section id="encomendas">
+						<div class="level unseen">
+							<div class="contact-banner contact-item fade-animation">
+								<div class="contact-banner-effect"></div>
+								<div class="container">
+									<div class="section">
+										<h2 class="title size banner-title has-text-white has-text-centered">FAÇA JÁ O SEU PEDIDO</h2>
+									</div>
+									<h4 class="title size banner-title has-text-white has-text-centered">Ligue agora mesmo e faça uma encomenda!
+									</h4>
+									<div class="level mt-6">
+										<div class="level-item">
+											<p class="contact-label">
+												<span class="icon is-large">
+													<i class="fa fa-whatsapp"></i>
+												</span>
+												<span class="mr-3">
+													(00) 9-9999-9991
+												</span>
+											</p>
+										</div>
+										<div class="level-item">
+											<p class="contact-label">
+												<span class="icon is-large">
+													<i class="fa fa-whatsapp"></i>
+												</span>
+												<span class="mr-3">
+													(00) 9-9999-9992
+												</span>
+											</p>
+										</div>
+										<div class="level-item">
+											<p class="contact-label">
+												<span class="icon is-large">
+													<i class="fa fa-phone"></i>
+												</span>
+												<span class="mr-3">
+													(00) 9-9999-9993
+												</span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</li>
+				<li class="carousel__slide-item fade-animation fadeIn fadeOut">
+					<section id="kitfesta" class="container">
+						<div class="level level-item unseen">
+							<div class="columns">
+								<div class="column">
+									<div class="image-box kit-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\kitfesta\angelina-yan-Kv50bguCyUw-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">TRADICIONAL</h3>
+										</div>
+									</div>
+								</div>
+								<div class="column">
+									<div class="image-box kit-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\kitfesta\nati-melnychuk-iHq2Mjpr5UU-unsplash.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">INFANTIL</h3>
+										</div>
+									</div>
+								</div>
+								<div class="column">
+									<div class="image-box kit-item is-flex is-align-items-flex-end fade-animation">
+										<img class="box-picture" src="_img\kitfesta\pexels-jill-wellington-433527.jpg">
+										<div class="box-subtitle level">
+											<h3 class="title size has-text-white level-item">TEMÁTICO</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</li>
+			</ol>
 		</div>
-		<script>
-			const carousel = bulmaCarousel.attach('#carousel-body', {
-				navigation: false,
-				pagination: false,
-				initialSlide: getInitialSlide(),
-				breakpoints: [
-					{ 
-						changePoint: 1408, 
-						slidesToShow: 1, 
-						slidesToScroll: 1 
-					},
-					{ 
-						changePoint: 1216, 
-						slidesToShow: 1, 
-						slidesToScroll: 1 
-					}, 
-					{ 
-						changePoint: 1024, 
-						slidesToShow: 1, 
-						slidesToScroll: 1 
-					}, 
-					{ 
-						changePoint: 768, 
-						slidesToShow: 1, 
-						slidesToScroll: 1 
-					} 
-				]
-			});
-			function getInitialSlide() {
-				let dataIndex = sessionStorage.getItem('currentTabIndex');
-				if (dataIndex === null) dataIndex = 0;
-	
-				return dataIndex;
-			}
-			function change_slider(index) {
-				const currIdItem = getActiveTab().getAttribute('data-index')
-				const slideItems = Array.from(carousel[0]._items);
-				const carouselEl = document.querySelector("#carousel-body");
-				const sliderContent = carouselEl.querySelector(".slider-container");
-				const currentLevels = sliderContent.querySelector(".is-current").querySelector('section').children;
-				const targetLevels = slideItems[index].querySelector('section').children;
-	
-				for (const level of currentLevels) {
-					level.classList.add("unsee");	
-				}
-				
-				slideItems[currIdItem].classList.add("fadeOut");
-				carousel[0].state.next = Number(index);
-				carousel[0].show(index)
-				
-				for (const level of targetLevels) {
-					level.classList.remove("unseen");
-				}
-				slideItems[index].classList.remove("fadeOut");
-	
-				sliderContent.style.height = getComputedStyle(slideItems[index]).height;
-			}
-		</script>
-	
 	</div>
 
 	<footer class="footer fade-animation is-invisible">
