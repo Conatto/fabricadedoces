@@ -19,6 +19,9 @@ window.onload = function() {
 
     // Detecta se o menu de abas está presente
     if (document.querySelector('#tabItems') !== null) {
+        // Instanciação do carrossel
+        const carousel = new Carousel(3500, true);
+        carousel.attachEvents(this);
         // Instanciação do slider de conteúdo
         const sliderContent = new Slider();
 
@@ -48,7 +51,7 @@ window.onload = function() {
         // => Efeito fade de entrada: aba kits
         fadeObserverCaller("#kitfesta");
     }
-
+    /*
     bulmaCarousel.attach('#carousel-hero', {
         navigation: false,
         navigationKeys: false,
@@ -78,7 +81,7 @@ window.onload = function() {
                 slidesToScroll: 1 
             } 
         ]
-    });
+    });*/
 }
 
 // INICIALIZAÇÕES DE OBSERVADORES

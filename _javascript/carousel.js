@@ -1,90 +1,112 @@
-class Slider {
-    idx;
-    translation;
-    carouselEl;
-    sliderViewport;
-    slideItems;
-
-    constructor() {
+class Carousel {
+    constructor(interval, auto) {
         this.idx = 0;
         this.translation = 0;
-        this.carouselEl = document.getElementById("sliderContent");
-        this.sliderViewport = document.getElementsByClassName("carousel__viewport")[0];
-        this.slideItems = this.sliderViewport.children;
+        this.interval = interval;
+        this.startingSwipeX = 0;
+        this.movingSwipeX = 0;
+        this.autoSlideSetted = auto;
+
+        this.carouselEl = document.getElementsByClassName("carousel")[0];
+        this.viewport = document.getElementsByClassName("carousel__viewport")[0];
+        this.navigationBtns = document.getElementsByClassName("carousel__pagination-button");
+        this.prevBtn = document.getElementsByClassName("carousel__prev")[0];
+        this.nextBtn = document.getElementsByClassName("carousel__next")[0];
+        this.slideItems = this.viewport.children;
+        this.lastItemIdx = this.slideItems.length-1;
+
+        if (this.autoSlideSetted) { this.startAutoSlide(); }
     }
 
-    slideTo(next) {
+    startAutoSlide() {
+        let self = this;
+        this.stopAutoSlide();
+        this.autoSlide = setInterval((function() { 
+            return function() { self.slideToForward(); }; 
+        })(), this.interval);
+    }
+    stopAutoSlide() {
+        clearInterval(this.autoSlide);
+    }
+    slideToForward() {
+        this.idx++;
+        if (this.idx > this.lastItemIdx) this.idx = 0;
+        this.sliderTransition(-1);
+    }
+    slideToBackward() {
+        this.idx--;
+        if (this.idx < 0) this.idx = this.lastItemIdx;
+        this.sliderTransition(1);
+    }
+    sliderTo(next) {
         if (next == this.idx) return;
+        const direction = (next - this.idx) * -1;
         
-        this.translation += (next - this.idx) * -100;
         this.idx = next;
-        
-        this.sliderViewport.style.transform = 'translateX('+this.translation+'vw)';
+        this.sliderTransition(direction);
     }
-    adjustHeight() {
-        const elCurrentHeight = this.sliderViewport.querySelector(".is_current");
-        this.carouselEl.style.height = getComputedStyle(elCurrentHeight).height;
-    }
-    changeSlide(index) {
-        const currIdItem = this.getActiveTab().getAttribute('data-index')
-        const currentLevels = this.sliderViewport.querySelector(".is_current").querySelector("section").children;
-        const targetLevels = this.slideItems[index].querySelector('section').children;
+    sliderTransition(direction) {        
+        this.translation += 100 * direction
     
-        for (const level of currentLevels) {
-            level.classList.add("unsee");
-        }
-        
-        this.slideItems[currIdItem].classList.add("fadeOut");
-        this.slideItems[currIdItem].classList.remove("is_current");
-        this.slideTo(index);
-        
-        for (const level of targetLevels) {
-            level.classList.remove("unseen");
-        }
+        if (this.translation < (100 * -this.lastItemIdx)) { this.translation = 0 };
+        if (this.translation > 0) { this.translation = 100 * -this.lastItemIdx };
     
-        this.slideItems[index].classList.remove("fadeOut");
-        this.slideItems[index].classList.add("is_current");
+        this.viewport.style.transform = 'translateX('+this.translation+'vw)';
+        this.viewport.style.transition = 'transform .5s ease-in-out';
+        this.updatePagination();
     }
-
-    toggleActiveTab(index) {
-        const clickedTab = document.querySelector('#tabItems').children[index];
-        if (clickedTab.classList.contains("is-active")){
-            return;
-        }
-    
-        let currentTab = this.getActiveTab()
-        if (currentTab !== undefined && currentTab !== null) {
-            currentTab.classList.remove("is-active");
-        } 
-        clickedTab.classList.add("is-active");
-        sessionStorage.setItem('currentTabIndex', Number(clickedTab.getAttribute('data-index')));
-    }
-    getActiveTab() {
-        const tabs = document.querySelector('#tabItems').children;
-        for (const tab of tabs) {
-            if (tab.classList.contains("is-active")) {
-                return tab
+    updatePagination() {
+        for (let i = 0; i < this.navigationBtns.length; i++) {
+            if (this.navigationBtns[i].classList.contains("is-active")) {
+                this.navigationBtns[i].classList.remove("is-active");
+                this.navigationBtns[this.idx].classList.add("is-active");
+                break;
             }
         }
     }
-    activeCurrentTab(dataIndex) {
-        if (dataIndex === null) dataIndex = 0;
-    
-        this.toggleActiveTab(dataIndex);
-        console.log(this.idx);
-        this.slideTo(dataIndex);
-    }
-    playSlideItemEffect(dataIndex) {
-        if (dataIndex === null) dataIndex = 0; 
-    
-        const levels = this.slideItems[dataIndex].querySelectorAll('.unseen');
-        const currentSlide = this.slideItems[dataIndex]
-    
-        for (const level of levels) {
-            level.classList.remove('unseen');
+    activateSlider(target) {
+        if (this.autoSlideSetted) { this.stopAutoSlide(); }
+        switch (target) {
+            case 'forward': this.slideToForward(); break;
+            case 'backward': this.slideToBackward(); break;
+            default: this.sliderTo(target);
         }
-        currentSlide.classList.remove('fadeOut');
-        currentSlide.classList.add('is_current');
-        this.adjustHeight();
+        if (this.autoSlideSetted) { this.startAutoSlide(); }
+    }
+
+    swipeStart(event) { 
+        this.startingSwipeX = event.touches[0].clientX; 
+    }
+    swipeMove(event) { 
+        this.movingSwipeX = event.touches[0].clientX; 
+    }
+    swipeEnd() { 
+        if (this.movingSwipeX === 0) return;
+        else if (this.startingSwipeX+100 <= this.movingSwipeX) { this.activateSlider("backward"); }
+        else if (this.startingSwipeX-100 >= this.movingSwipeX) { this.activateSlider("forward"); } 
+        this.movingSwipeX = 0;
+    }
+
+    attachEvents(screenViewport) {
+        let self = this;
+        addEvent(this.prevBtn, 'click', function() { self.activateSlider("backward"); });
+        addEvent(this.nextBtn, 'click', function() { self.activateSlider("forward"); });
+        for (const button of this.navigationBtns) {
+            addEvent(button, 'click', function() { self.activateSlider(button.dataset.index) });
+        }
+
+        addEvent(this.carouselEl, 'touchstart', event => { self.swipeStart(event) });
+        addEvent(this.carouselEl, 'touchmove', event => { self.swipeMove(event) });
+        addEvent(this.carouselEl, 'touchend', () => { self.swipeEnd(); });
+
+        addEvent(screenViewport, 'focus', function() { self.startAutoSlide(); });
+        addEvent(screenViewport, 'blur', function() { self.stopAutoSlide(); });
+    }
+
+    addEvent(element, event, func) {
+        if (element.attachEvent)
+            return element.attachEvent('on'+event, func);
+        else
+            return element.addEventListener(event, func, false);
     }
 }

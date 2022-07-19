@@ -7610,23 +7610,22 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 html, body {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; }
+  background-color: #F5D0C5; }
 
 body {
-  position: relative;
-  background-color: #F5D0C5;
-  line-height: 0.8rem;
-  overflow: hidden; }
-
-.body-content {
-  padding-bottom: 40vh; }
+  line-height: 0.8rem; }
 
 section {
-  height: 100%;
   line-height: 1.5rem; }
+
+section.hero {
+  height: 90%; }
+  @media screen and (max-width: 1023px) {
+    section.hero {
+      height: 33%; } }
 
 img.logo {
   max-height: 3rem; }
@@ -7639,19 +7638,6 @@ img.logo {
 
 a.navbar-item.is-active, .navbar-link.is-active {
   color: #fff; }
-
-.slider-navigation-previous,
-.slider-navigation-next {
-  display: none !important; }
-
-.carousel-banner-filter {
-  position: fixed;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.05) 15%);
-  width: 100%;
-  height: 100%; }
-
-.slider-item {
-  width: 100vw; }
 
 .main-title {
   width: 45vw;
@@ -7734,7 +7720,6 @@ a.navbar-item {
   font-weight: bold; }
 
 footer {
-  position: absolute;
   bottom: 0;
   width: -webkit-fill-available;
   width: -moz-available;

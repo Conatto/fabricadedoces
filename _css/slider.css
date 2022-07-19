@@ -1,0 +1,26 @@
+ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slider__body {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+}
+.slider__viewport {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    overflow: hidden; 
+    transform: translateX(0vw);
+}
+.slider__slide-item {
+    width: 100vw;
+    height: fit-content;
+}
+.slider__animation-effect {
+    transition: transform .5s ease-in-out;
+}
