@@ -89,8 +89,8 @@ class Carousel {
 
     attachEvents(screenViewport) {
         let self = this;
-        addEvent(this.prevBtn, 'click', function() { self.activateSlider("backward"); });
-        addEvent(this.nextBtn, 'click', function() { self.activateSlider("forward"); });
+        if (this.prevBtn) addEvent(this.prevBtn, 'click', function() { self.activateSlider("backward"); });
+        if (this.nextBtn) addEvent(this.nextBtn, 'click', function() { self.activateSlider("forward"); });
         for (const button of this.navigationBtns) {
             addEvent(button, 'click', function() { self.activateSlider(button.dataset.index) });
         }
